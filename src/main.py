@@ -27,7 +27,7 @@ class Slides:
                 slide.save(path, "png")
                 pptx_slide.shapes.add_picture(path, 0, 0)
             os.remove(path)
-            presentation.save(self._path+".pptx")
+            presentation.save(self._path + ".pptx")
 
         else:
             print("Could not load File.")

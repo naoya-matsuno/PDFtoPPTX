@@ -47,14 +47,6 @@ python-versions = ">=3.6"
 crypto = ["PyCryptodome"]
 
 [[package]]
-name = "python-poppler"
-version = "0.3.0"
-description = "A Python binding to poppler-cpp"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "python-pptx"
 version = "0.6.21"
 description = "Generate and manipulate Open XML PowerPoint (.pptx) files"
@@ -78,7 +70,7 @@ python-versions = ">=3.4"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "c314213926ffb51fb7141c1bce292494f64bbef35e298798a16fbe075a9e782b"
+content-hash = "22f7a8cf3dc4040a64a3bdfa2971ada5d4a9d2685558086a794c92f7e9b1dc37"
 
 [metadata.files]
 lxml = [
@@ -223,9 +215,6 @@ pillow = [
 pypdf2 = [
     {file = "PyPDF2-2.11.1-py3-none-any.whl", hash = "sha256:7291a552ead2e7c2d556cce03bf71842fbbab478fcba13ae75ab1d59746b4dcb"},
     {file = "PyPDF2-2.11.1.tar.gz", hash = "sha256:3c7badd512c21711eb1789c2eadbf96279289c0f94452ee54a86473bfbefd732"},
-]
-python-poppler = [
-    {file = "python-poppler-0.3.0.tar.gz", hash = "sha256:8b6a157e51cbb4c08353a21ca3f6f396558759cdfb0b80071379ad89d5f7c533"},
 ]
 python-pptx = [
     {file = "python-pptx-0.6.21.tar.gz", hash = "sha256:7798a2aaf89563565b3c7120c0acfe9aff775db0db3580544e3bf4840c2e378f"},
