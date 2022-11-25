@@ -58,11 +58,11 @@ class Window():
         self.__window.mainloop()
 
     def __pushConvert(self) -> None:
-        write = True
+        writable = True
         if os.path.exists(os.path.splitext(self.__path)[0] + "_converted.pptx"):
             write = messagebox.askyesno(title=self.__title, message="\"" + os.path.splitext(self.__path)[0] + "_converted.pptx\" already exists.\nDo you want to overwrite it?")
 
-        if write:
+        if writable:
             self.__select_btn["state"] = tkinter.DISABLED
             self.__convert_btn["state"] = tkinter.DISABLED
             self.__process_label["text"] = "Processing..."
