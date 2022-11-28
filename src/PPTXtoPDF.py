@@ -1,4 +1,4 @@
-from pdf2image import convert_from_path
+import fitz
 from pptx import Presentation
 from pptx.util import Pt
 import os
@@ -11,18 +11,18 @@ class Slides():
     
     def __init__(self, path: str) -> None:
         self.__path, _ = os.path.splitext(path)
-        self.__slides = convert_from_path(path)
+        self.__slides = fitz.open(path)
 
     def convertPPTX(self) -> None:
         presentation = Presentation()
-        presentation.slide_height = Pt(self.__slides[0].height)
-        presentation.slide_width = Pt(self.__slides[0].width)
+        presentation.slide_height = Pt(self.__slides[0].get_pixmap().height)
+        presentation.slide_width = Pt(self.__slides[0].get_pixmap().width)
         path = ""
         for slide in self.__slides:
             pptx_slide = presentation.slides.add_slide(presentation.slide_layouts[6])
             path = self.__path + "_page.png"
-            slide.save(path, "png")
-            pptx_slide.shapes.add_picture(path, 0, 0)
+            slide.get_pixmap().save(path)
+            pptx_slide.shapes.add_picture(path, 0, 0, Pt(slide.get_pixmap().width), Pt(slide.get_pixmap().height))
         os.remove(path)
         presentation.save(self.__path + "_converted.pptx")
 
@@ -40,7 +40,7 @@ class Window():
     def __init__(self) -> None:
         self.__window = tkinter.Tk()
         self.__window.title(self.__title)
-        self.__width = 400
+        self.__width = 600
         self.__height = 200
         window_pos_left = int((self.__window.winfo_screenwidth() - self.__width)/ 2)
         window_pos_top = int((self.__window.winfo_screenheight() - self.__height)/ 2)
