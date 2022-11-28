@@ -48,7 +48,7 @@ class Window():
         
         self.__path_label = tkinter.Label(self.__window, justify=tkinter.CENTER)
         self.__process_label = tkinter.Label(self.__window, justify=tkinter.CENTER)
-        self.__select_btn = tkinter.Button(self.__window, text="Select", command=self.__setPath, justify=tkinter.CENTER, cursor="hand1")
+        self.__select_btn = tkinter.Button(self.__window, text="Select", command=self.__setPath, justify=tkinter.CENTER, cursor="hand2")
         self.__convert_btn = tkinter.Button(self.__window, text="Convert", command=self.__pushConvertBtn, justify=tkinter.CENTER,  state=tkinter.DISABLED, cursor="arrow")
 
         self.__path_label.pack(side=tkinter.TOP, pady=10)
@@ -73,16 +73,16 @@ class Window():
             self.__process_label["text"] = ""
             messagebox.showinfo(title=self.__title, message="Finished!")
             self.__select_btn["state"] = tkinter.NORMAL
-            self.__select_btn["cursor"] = "hand1"
+            self.__select_btn["cursor"] = "hand2"
             self.__convert_btn["state"] = tkinter.NORMAL
-            self.__convert_btn["cursor"] = "hand1"
+            self.__convert_btn["cursor"] = "hand2"
 
     def __setPath(self) -> None:
         path = filedialog.askopenfilename(filetypes=[("PDF File", "*.pdf")])
         self.__path = path
         self.__path_label["text"] = path
         self.__convert_btn["state"] = tkinter.NORMAL
-        self.__convert_btn["cursor"] = "hand1"
+        self.__convert_btn["cursor"] = "hand2"
 
 def main() -> None:
     Window()
