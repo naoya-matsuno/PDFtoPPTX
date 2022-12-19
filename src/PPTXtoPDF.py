@@ -14,15 +14,16 @@ class Slides():
         self.__slides = fitz.open(path)
 
     def convertPPTX(self) -> None:
+        dpi = 400
         presentation = Presentation()
-        presentation.slide_height = Pt(self.__slides[0].get_pixmap().height)
-        presentation.slide_width = Pt(self.__slides[0].get_pixmap().width)
+        presentation.slide_height = Pt(self.__slides[0].get_pixmap(dpi=dpi).height)
+        presentation.slide_width = Pt(self.__slides[0].get_pixmap(dpi=dpi).width)
         path = ""
         for slide in self.__slides:
             pptx_slide = presentation.slides.add_slide(presentation.slide_layouts[6])
             path = self.__path + "_page.png"
-            slide.get_pixmap().save(path)
-            pptx_slide.shapes.add_picture(path, 0, 0, Pt(slide.get_pixmap().width), Pt(slide.get_pixmap().height))
+            slide.get_pixmap(dpi=dpi).save(path)
+            pptx_slide.shapes.add_picture(path, 0, 0, Pt(self.__slides[0].get_pixmap(dpi=dpi).width), Pt(self.__slides[0].get_pixmap(dpi=dpi).height))
         os.remove(path)
         presentation.save(self.__path + "_converted.pptx")
 
