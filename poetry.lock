@@ -563,14 +563,6 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
-name = "tkinterdnd2"
-version = "0.3.0"
-description = "TkinterDnD2 is a python wrapper for George Petasis'' tkDnD Tk extension version 2"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[[package]]
 name = "traits"
 version = "6.3.2"
 description = "Observable typed attributes for Python classes"
@@ -607,7 +599,7 @@ python-versions = ">=3.4"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.12"
-content-hash = "f5e37c9bf4a8597a1b8c4bdc412eeddde503dae407023bbbef5617e78acdceae"
+content-hash = "0d4fcdd94ece71b3966f2a48c2a56593faf3ee41b57fbf1bd9176924824d30c5"
 
 [metadata.files]
 altgraph = [
@@ -1072,10 +1064,6 @@ simplejson = [
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
-]
-tkinterdnd2 = [
-    {file = "tkinterdnd2-0.3.0-py3-none-any.whl", hash = "sha256:ef3ff4894c75e21ddc3252eb6d1292670824bf20240b9e82da9240631bbe63fe"},
-    {file = "tkinterdnd2-0.3.0.tar.gz", hash = "sha256:cb9d72634c42ff2e5a6e34823ef02f7722a5b6ad5cec5e1de82ec8f0c371a614"},
 ]
 traits = [
     {file = "traits-6.3.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:6202ef3b2eb25663418b7afcacc998ebebcffcb629cefc8bc467e09967c71334"},
