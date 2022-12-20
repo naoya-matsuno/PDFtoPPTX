@@ -14,7 +14,12 @@ class Slides():
         self.__slides = fitz.open(path)
 
     def convertPPTX(self) -> None:
-        dpi = 400
+        dpi = 100
+        base = self.__slides[0].get_pixmap(dpi=dpi).width
+        if base < self.__slides[0].get_pixmap(dpi=dpi).height:
+            base = self.__slides[0].get_pixmap(dpi=dpi).height
+        if base < 2000:
+            dpi = int(2000 / base * dpi)
         presentation = Presentation()
         presentation.slide_height = Pt(self.__slides[0].get_pixmap(dpi=dpi).height)
         presentation.slide_width = Pt(self.__slides[0].get_pixmap(dpi=dpi).width)
@@ -23,7 +28,7 @@ class Slides():
             pptx_slide = presentation.slides.add_slide(presentation.slide_layouts[6])
             path = self.__path + "_page.png"
             slide.get_pixmap(dpi=dpi).save(path)
-            pptx_slide.shapes.add_picture(path, 0, 0, Pt(self.__slides[0].get_pixmap(dpi=dpi).width), Pt(self.__slides[0].get_pixmap(dpi=dpi).height))
+            pptx_slide.shapes.add_picture(path, 0, 0, presentation.slide_width, presentation.slide_height)
         os.remove(path)
         presentation.save(self.__path + "_converted.pptx")
 
